@@ -1,5 +1,10 @@
 <template>
-  <div>
-    <NuxtWelcome />
-  </div>
+  <NuxtLayout>
+    <NuxtPage></NuxtPage>
+  </NuxtLayout>
 </template>
+<script>
+export default {
+  name: 'Root',
+}
+</script>
