@@ -6,7 +6,7 @@ export default {
   props: {
     modelValue: { type: Boolean, default: false },
   },
-  setup(props, context) {
+  setup(props) {
     const isDrawerOpen = ref(false)
     watch(
       () => props.modelValue,
