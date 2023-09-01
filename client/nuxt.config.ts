@@ -2,4 +2,9 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@invictus.codes/nuxt-vuetify'],
+  vuetify: {
+    moduleOptions: {
+      useVuetifyLabs: true,
+    },
+  },
 })
