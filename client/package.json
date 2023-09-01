@@ -15,5 +15,8 @@
     "eslint": "^8.48.0",
     "eslint-plugin-vue": "^9.17.0",
     "nuxt": "^3.7.0"
+  },
+  "dependencies": {
+    "@nuxtjs/eslint-module": "^4.1.0"
   }
 }

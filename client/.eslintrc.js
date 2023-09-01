@@ -18,5 +18,6 @@ module.exports = {
     ref: 'readonly',
     computed: 'readonly',
     watch: 'readonly',
+    defineNuxtConfig: 'readonly',
   },
 }
