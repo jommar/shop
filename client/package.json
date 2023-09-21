@@ -12,6 +12,7 @@
   "devDependencies": {
     "@invictus.codes/nuxt-vuetify": "^0.3.0",
     "@nuxt/devtools": "latest",
+    "@nuxtjs/google-fonts": "^3.0.2",
     "eslint": "^8.48.0",
     "eslint-plugin-vue": "^9.17.0",
     "nuxt": "^3.7.0"
