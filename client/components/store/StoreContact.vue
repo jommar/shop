@@ -5,7 +5,7 @@
         :attrs="{
           label: 'Email',
         }"
-        v-model="form.email"
+        v-model="props.modelValue.contact.email"
       />
       <div class="d-flex">
         <FormsSelect
@@ -15,14 +15,14 @@
             label: 'Phone',
             items: phoneCodes,
           }"
-          v-model="form.phone.code"
+          v-model="props.modelValue.contact.phone.code"
         />
         <FormsText
           class="flex-grow-1"
           :attrs="{
             label: 'Phone',
           }"
-          v-model="form.phone.number"
+          v-model="props.modelValue.contact.phone.number"
         />
       </div>
       <FormsSelect
@@ -30,7 +30,7 @@
           label: 'Country',
           items: countries,
         }"
-        v-model="form.country"
+        v-model="props.modelValue.contact.country"
       />
       <FormsText
         class="flex-grow-1"
@@ -38,26 +38,17 @@
           label: 'Password',
           type: 'password',
         }"
-        v-model="form.password"
+        v-model="props.modelValue.contact.password"
       />
     </v-form>
-    <pre>{{ form }}</pre>
   </div>
 </template>
 <script>
 import countriesJson from '@/static/countries.json'
 export default {
   name: 'StoreContact',
-  setup() {
-    const form = ref({
-      email: '',
-      phone: {
-        code: '',
-        number: '',
-      },
-      country: '',
-      password: '',
-    })
+  props: { modelValue: { type: Object } },
+  setup(props) {
     const countries = computed(() => {
       return Object.values(countriesJson).map((i) => ({
         title: i.name,
@@ -71,7 +62,7 @@ export default {
       }))
     })
 
-    return { form, countries, phoneCodes }
+    return { countries, phoneCodes, props }
   },
 }
 </script>

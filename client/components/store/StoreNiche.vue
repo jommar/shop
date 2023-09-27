@@ -7,7 +7,7 @@
           hint: 'This will be used by the AI to create categories',
           persistentHint: true,
         }"
-        v-model="form.niche"
+        v-model="props.modelValue.niche.niche"
       />
       <FormsSelect
         :attrs="{
@@ -17,7 +17,7 @@
           chips: true,
           closableChips: true,
         }"
-        v-model="form.category"
+        v-model="props.modelValue.niche.category"
       />
       <FormsTextArea
         :attrs="{
@@ -25,24 +25,18 @@
           hint: `Describe what kind of products you plan to offer in the store. For example, 'All about home products'. This information will be used by the AI to create categories.`,
           persistentHint: true,
         }"
-        v-model="form.details"
+        v-model="props.modelValue.niche.details"
       />
     </v-form>
-    <pre>{{ form }}</pre>
   </div>
 </template>
 <script>
 import categoriesJson from '@/static/shop-categories.json'
 export default {
   name: 'StoreNiche',
-  setup() {
+  props: { modelValue: { type: Object } },
+  setup(props) {
     const { $toSlug } = useNuxtApp()
-
-    const form = ref({
-      niche: '',
-      category: [],
-      details: '',
-    })
     const categories = computed(() => {
       const categories = []
       categoriesJson.forEach((item) => {
@@ -57,7 +51,7 @@ export default {
       return categories
     })
 
-    return { form, categories }
+    return { props, categories }
   },
 }
 </script>
