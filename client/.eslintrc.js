@@ -26,5 +26,7 @@ module.exports = {
     computed: 'readonly',
     watch: 'readonly',
     defineNuxtConfig: 'readonly',
+    defineNuxtPlugin: 'readonly',
+    useNuxtApp: 'readonly',
   },
 }
