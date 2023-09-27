@@ -1,6 +1,14 @@
 <template>
   <div>
-    <v-text-field v-bind="attributes" v-model="val" class="mb-4" />
+    <v-text-field
+      v-if="attrs.type === 'password'"
+      v-bind="attributes"
+      v-model="val"
+      class="mb-4"
+      :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+      @click:append="showPassword = !showPassword"
+    />
+    <v-text-field v-else v-bind="attributes" v-model="val" class="mb-4" />
   </div>
 </template>
 <script>
@@ -12,6 +20,7 @@ export default {
   },
   setup(props, context) {
     const val = ref(null)
+    const showPassword = ref(false)
 
     watch(
       () => val.value,
@@ -26,13 +35,18 @@ export default {
         variant: 'outlined',
         clearable: true,
       }
-      return {
+      const attributes = {
         ...props.attrs,
         ...attrs,
       }
+      if (props.attrs.type === 'password') {
+        attributes.type = showPassword.value ? 'text' : 'password'
+      }
+
+      return attributes
     })
 
-    return { attributes, val }
+    return { attributes, val, showPassword }
   },
 }
 </script>

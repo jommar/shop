@@ -32,6 +32,14 @@
         }"
         v-model="form.country"
       />
+      <FormsText
+        class="flex-grow-1"
+        :attrs="{
+          label: 'Password',
+          type: 'password',
+        }"
+        v-model="form.password"
+      />
     </v-form>
     <pre>{{ form }}</pre>
   </div>
@@ -48,6 +56,7 @@ export default {
         number: '',
       },
       country: '',
+      password: '',
     })
     const countries = computed(() => {
       return Object.values(countriesJson).map((i) => ({

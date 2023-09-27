@@ -24,7 +24,7 @@ export default {
       items: [
         { title: 'Store Settings', value: 1, icon: 'mdi-cogs' },
         { title: 'Niche', value: 2, icon: 'mdi-tag' },
-        { title: 'Contact Info', value: 3, icon: 'mdi-card-account-mail' },
+        { title: 'Contact & Security', value: 3, icon: 'mdi-card-account-mail' },
         { title: 'Payment', value: 4, icon: 'mdi-credit-card' },
         { title: 'Build', value: 5, icon: 'mdi-wrench' },
       ],
