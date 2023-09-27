@@ -1,10 +1,7 @@
 <template>
   <div>
     <v-form>
-      <FormsText
-        :attrs="{ label: 'Name of the store' }"
-        v-model="form.name"
-      />
+      <FormsText :attrs="{ label: 'Name of the store' }" v-model="form.name" />
       <FormsText
         :attrs="{ label: 'Headline (optional)' }"
         v-model="form.headline"
@@ -12,6 +9,10 @@
       <FormsSelect
         :attrs="{ label: 'Currency', items: currencies }"
         v-model="form.currency"
+      />
+      <FormsSelect
+        :attrs="{ label: 'Shop Type', items: types }"
+        v-model="form.shopType"
       />
     </v-form>
     <pre>{{ form }}</pre>
@@ -26,6 +27,7 @@ export default {
       name: '',
       headline: '',
       currency: '',
+      shopType: '',
     })
     const currencies = computed(() => {
       return Object.values(curJson).map((i) => ({
@@ -33,8 +35,9 @@ export default {
         value: i.code,
       }))
     })
+    const types = [{ title: 'Shopify', value: 'shopify' }]
 
-    return { form, currencies }
+    return { form, currencies, types }
   },
 }
 </script>
