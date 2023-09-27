@@ -13,7 +13,7 @@
         :attrs="{
           label: 'Categories',
           multiple: true,
-          items: [1, 2, 3],
+          items: categories,
           chips: true,
           closableChips: true,
         }"
@@ -32,16 +32,32 @@
   </div>
 </template>
 <script>
+import categoriesJson from '@/static/shop-categories.json'
 export default {
   name: 'StoreNiche',
   setup() {
+    const { $toSlug } = useNuxtApp()
+
     const form = ref({
       niche: '',
       category: [],
       details: '',
     })
+    const categories = computed(() => {
+      const categories = []
+      categoriesJson.forEach((item) => {
+        categories.push(
+          ...item.subcategories.map((i) => ({
+            title: `${item.name} - ${i.name}`,
+            value: $toSlug(i.name),
+            category: item.name,
+          })),
+        )
+      })
+      return categories
+    })
 
-    return { form }
+    return { form, categories }
   },
 }
 </script>
